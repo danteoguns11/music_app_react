@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "track": "WAIT FOR U",
+        "artist": "Future",
+        "featuring": "Drake & Tems",
+        "type": "Hip-Hop",
+        "info": "Future's tender yet Machiavellian side comes to play on “WAIT FOR U.” His vice-riddled, emotionally wrought bars like “Every time I sip on codeine, I get vulnerable” and “Get mad at yourself 'cause you can't leave me alone” extract the very essence of Future, while Drake confesses that loving a woman isn't what he does for a living yet somehow mourns a relationship he couldn't maintain. But it's Nigerian star Tems' breathy, soul-gripping vocals from her 2020 track “Higher” that anchors the brooding duo, who falsely promise they will wait for their women to come back around. - H.M.",
+        "image": "../src/assets/Future - WAIT FOR U (feat. Drake & Tems).jpeg",
+        "liked": true
+    },
+    {
+        "id": 2,
+        "track": "Jimmy Cooks",
+        "artist": "Drake & 21 Savage",
+        "featuring": "",
+        "type": "Hip-Hop",
+        "info": "The first 12 songs of Honestly, Nevermind seemed like an innocent exploration for Drake, as he trekked through the dance scene in earnest for the first time in his career. Though he irked rap purists with his childlike curiosity, he knew how to get the streets talking again: “Jimmy Cooks” is a searing outro that pays homage to recently deceased hip-hop figures Lil Keed and DJ Kay Slay, and serves as the catalyst to what would later become Drake and 21's joint effort Her Loss. They let off a couple of volleys, enough to spark fear and intrigue, all while giving fans a summer scorcher in the process. — C.LAMARRE",
+        "image": "../src/assets/drake 21 & savage - jimmy cooks.jpeg",
+        "liked": false
+    },
+    {
+        "id": 3,
+        "track": "Break My Soul",
+        "artist": "Beyoncé",
+        "featuring": "",
+        "type": "Dance/House",
+        "info": "Bey is back, and beckoning everyone to the dancefloor with her infectious diva house anthem “Break My Soul.” The lead single from her Billboard 200-topping album Renaissance - which references the synth hook to Robin S.' '90s smash “Show Me Love” and samples Big Freedia's vocal callouts from her 2014 bounce track “Explode” - leaves fans blissfully drenched in their own sweat while thirsting for joy amid life's usual drabness. Queen Bey pays homage not only to dance music's Black and queer roots, but also other iconic Black female artists and ballroom houses on the song's “Queens Remix” through samples and interpolations from Madonna's No. 1 hit “Vogue.” B reclaimed her place on the pop throne when “Break My Soul” became her first solo Billboard Hot 100 No. 1 in 14 years and scored three 2023 Grammy nominations, including record and song of the year. — H.M.",
+        "image": "../src/assets/beyonce - break my soul.jpeg",
+        "liked": false
+    },
+    {
+        "id": 4,
+        "track": "Pushin P",
+        "artist": "Gunna & Future",
+        "featuring": "Young Thug",
+        "type": "Hip-Hop",
+        "info": "The first two months of the year in hip-hop were definitely brought to you by the letter “P,” as Gunna, Future and Young Thug submitted the shortest-ever new entry to hip-hop's eternal lexicon. The luxurious Wheezy and Juke Wong beat gives the star rap trio room to stretch out as they pop their p's like they're testing out a new microphone, and confirm the song's cool with the distinctly less-is-more refrain (“I'm pushin' P… pushin' P…. yeah”). Then, the beat suddenly gets horror-movie dramatic, as if Future was about to deliver the most pivotal line of the year — which he of course does: “She not a lesbian, but for P, she turn Pesbian.” — A.U.",
+        "image": "../src/assets/gunna & future - pushin p.jpeg",
+        "liked": true
+    }
+]
