@@ -1,11 +1,10 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import { Nav, Navbar } from 'react-bootstrap'
+import { Outlet } from 'react-router-dom'
 
-export function Header() {
+export function NavBar() {
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Container>
+        <>
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Navbar.Brand href="/">Music App</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
@@ -13,7 +12,8 @@ export function Header() {
                         <Nav.Link href="/">Top 4</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
-            </Container>
-        </Navbar>
+            </Navbar>
+            <Outlet />
+        </>
     );
 }

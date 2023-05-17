@@ -1,40 +1,23 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.scss'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
-import { Container, Row, Col } from 'react-bootstrap';
-import { Header } from './components/Header'
-import { ViewTracks } from './components/viewTracks'
-import { ShowTrack } from './components/showTrack'
-import tracks from './data.json' //https://www.billboard.com/lists/2022-best-hip-hop-songs/
+import { NavBar } from './components/NavBar'
+import { Homepage } from './components/Homepage'
+import { ShowTrack } from './components/ShowTrack'
+import tracks from './data.json'
 
 function App() {
   return (
-    <Router>
-      <>
-        <Header />
-        <Container>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/details/:trackId" element={<ShowTrack tracks={tracks} />} />
-          </Routes>
-        </Container>
-      </>
-    </Router>
-  );
-}
-
-function HomePage() {
-  return (
-    <Row>
-      {tracks.map((track) => (
-        <Col xs={6} className='mb-5' key={track.id}>
-          <ViewTracks key={track.id} track={track} />
-        </Col>
-      ))}
-    </Row>
+    <>
+      <Routes>
+        <Route path="/" element={<NavBar />}>
+          <Route index element={<Homepage />} />
+          <Route path="/details/:trackId" element={<ShowTrack tracks={tracks} />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 
