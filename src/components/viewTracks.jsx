@@ -33,7 +33,7 @@ export function ViewTracks({ track }) {
                 <Card.Text>Genre: {track.type || "No Genre Found"}</Card.Text>
                 <Link to={`/details/${track.id}`}>
                     <Button
-                        className='mt-auto font-weight-bold'
+                        className='mt-auto font-weight-bold btn-right'
                         variant='success'
                         onClick={selectTrack}
                     >

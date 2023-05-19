@@ -3,8 +3,6 @@ import { Button, Card, Container, Row, Col } from 'react-bootstrap';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { Heart, HeartFill } from 'react-bootstrap-icons';
 
-import tracks from '../data.json'
-
 export function ShowTrack({ tracks }) {
     const { trackId } = useParams();
     const selectedTrack = tracks && tracks.find((track) => track.id === parseInt(trackId));

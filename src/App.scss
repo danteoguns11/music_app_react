@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  max-width: 100vx;
   margin: 0 auto;
   // text-align: center;
 }
@@ -16,6 +16,28 @@
   padding: 0.5em;
 }
 
+.card-title {
+  text-align: center !important;
+}
+
 .read-the-docs {
   color: #888;
+}
+
+.navbar {
+  width: 100vw;
+}
+
+.btn-right {
+
+  float: right;
+
+  // centered btn
+  // position: relative;
+  // left: 50%;
+  // transform: translate(-50%);
+}
+
+.logo {
+  padding: 10px;
 }
