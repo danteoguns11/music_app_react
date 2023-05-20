@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, InputGroup, FormControl, Button, Row, Card, ListGroup, Accordion } from 'react-bootstrap'
+import { Container, InputGroup, FormControl, Button, Row, Card, ListGroup, Accordion, Badge } from 'react-bootstrap'
 import React, { useState, useEffect } from 'react'
 
 const CLIENT_ID = '879b5f48f7a245dea88f82a12a28e328'
@@ -42,7 +42,8 @@ function App() {
       fetch('https://api.spotify.com/v1/recommendations' + '?limit=12&market=US&seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_genres=rap&seed_tracks=0c6xIDDpzE81m2q797ordA', searchParameters)
         .then(response => response.json())
         .then(data => {
-          setRecommendations(data.tracks)
+          setRecommendations(data.tracks.sort((a, b) => a.popularity - b.popularity)
+          )
         });
     }
   }, [accessToken]);
@@ -155,15 +156,17 @@ function App() {
             {recommendations.map((recommendation, i) => {
               return (
                 <Card key={i}>
-                  <Card.Title className='gold'>{recommendation.album.artists[0].name} </Card.Title>
+                  <Card.Title className='artist-name'>{recommendation.album.artists[0].name} </Card.Title>
                   <Card.Img src={recommendation.album.images[0].url} />
                   <Card.Body>
-                    <Card.Title>{recommendation.album.name} </Card.Title>
-                    <Card.Text>Popularity#: {recommendation.popularity} </Card.Text>
-                    <Card.Text>Release Date: {formatApiDate(recommendation.album.release_date)} </Card.Text>
+                    <Card.Title>
+                      <Badge bg="secondary" className='gold-badge'>#{recommendation.popularity}</Badge>
+                      {recommendation.album.name}
+                    </Card.Title>
+                    <Card.Text>Release Date: {formatApiDate(recommendation.album.release_date)}</Card.Text>
                   </Card.Body>
                 </Card>
-              )
+              );
             })}
           </Row>
         </Container>

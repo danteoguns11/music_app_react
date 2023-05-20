@@ -18,6 +18,11 @@ code {
   text-transform: capitalize;
 }
 
-.gold {
+.artist-name {
   -webkit-text-fill-color: blue;
+}
+
+.gold-badge {
+  margin-right: 10px;
+  -webkit-text-fill-color: gold;
 }
