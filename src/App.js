@@ -38,17 +38,16 @@ function App() {
         },
       }
 
+      // eslint-disable-next-line
       fetch('https://api.spotify.com/v1/recommendations' + '?limit=12&market=US&seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_genres=rap&seed_tracks=0c6xIDDpzE81m2q797ordA', searchParameters)
         .then(response => response.json())
         .then(data => {
           setRecommendations(data.tracks)
-          console.log('console recommendations', data)
         });
     }
   }, [accessToken]);
 
   async function search() {
-    console.log('Searching For', searchInput) // Chris Brown
     setIsSearchButtonClicked(true);
 
     // GET request using search to get the Artist ID
@@ -74,7 +73,6 @@ function App() {
     let returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/albums' + '?include_groups=album&market=US&limit=50', searchParameters)
       .then(response => response.json())
       .then(data => {
-        console.log(data)
         setAlbums(data.items)
       })
   }
