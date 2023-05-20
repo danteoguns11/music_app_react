@@ -26,3 +26,11 @@ code {
   margin-right: 10px;
   -webkit-text-fill-color: gold;
 }
+
+.logo {
+  margin-right: 15px;
+}
+
+.search-form {
+  padding: 15px;
+}
