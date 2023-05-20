@@ -13,7 +13,8 @@ code {
 }
 
 .card-text,
-.card-title {
+.card-title,
+.list-group-item {
   text-transform: capitalize;
 }
 
