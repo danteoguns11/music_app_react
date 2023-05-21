@@ -1,7 +1,7 @@
 import '../../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect } from 'react'
-import { Container } from 'react-bootstrap';
+import { Container, Navbar, Nav, Dropdown } from 'react-bootstrap';
 
 import NavBar from '../NavBar';
 import AlbumSearch from '../AlbumSearch';
@@ -41,14 +41,14 @@ function Homepage() {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + accessToken
                 },
-            }
+            };
 
             // eslint-disable-next-line
-            fetch('https://api.spotify.com/v1/recommendations' + '?limit=12&market=US&seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_genres=rap&seed_tracks=0c6xIDDpzE81m2q797ordA&min_popularity=75', searchParameters)
+            fetch('https://api.spotify.com/v1/recommendations?limit=24&market=GB&seed_genres=r-n-b&min_popularity=50', searchParameters)
                 .then(response => response.json())
                 .then(data => {
-                    setRecommendations(data.tracks.sort((a, b) => b.popularity - a.popularity))
-                    setLoading(false)
+                    setRecommendations(data.tracks.sort((a, b) => b.popularity - a.popularity));
+                    setLoading(false);
                 });
         }
     }, [accessToken]);
@@ -88,7 +88,7 @@ function Homepage() {
 
         // GET request with Artist ID to grab all the albums from that artist
         // eslint-disable-next-line
-        let returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/albums' + '?include_groups=album&market=US&limit=50', searchParameters)
+        let returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/albums' + '?include_groups=album&market=GB&limit=50', searchParameters)
             .then(response => {
                 setLoading(true)
                 return response.json()
@@ -105,9 +105,28 @@ function Homepage() {
         return date.toLocaleDateString('en-GB', options);
     }
 
+    function handleGenreSelection(selectedGenre) {
+        // Perform logic to fetch recommendations based on selected genre
+        // Replace the example URL and parameters with your actual API endpoint
+        const genreRecommendationsUrl = `https://api.spotify.com/v1/recommendations?limit=24&market=GB&seed_genres=${selectedGenre}&min_popularity=50`;
+
+        fetch(genreRecommendationsUrl, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + accessToken
+            },
+        })
+            .then(response => response.json())
+            .then(data => {
+                setRecommendations(data.tracks.sort((a, b) => b.popularity - a.popularity));
+                setLoading(false);
+            });
+    }
+
     return (
         <div className='App'>
-            <NavBar onSearch={search} onInputChange={setSearchInput} />
+            <NavBar onSearch={search} onInputChange={setSearchInput} onGenreSelection={handleGenreSelection} />
 
             <Container>
 
@@ -127,7 +146,6 @@ function Homepage() {
                 }
 
             </Container>
-
         </div>
     );
 }

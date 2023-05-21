@@ -5,7 +5,8 @@ function Recommendations({ recommendations, formatApiDate }) {
     return (
         <>
             <Container>
-                <h2 className='mb-4 font-weight-bold'>Random Recommendations</h2>
+                <h2 className='mb-4 font-weight-bold'>Recommended Albums</h2>
+                <p>Can't decide what to listen to and want some recommended albums? Click on the Swing to choose a random genre</p>
             </Container>
             <Row className='row row-cols-4'>
                 {recommendations.map((recommendation, i) => {

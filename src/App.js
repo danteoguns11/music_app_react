@@ -11,9 +11,9 @@ function App() {
     return (
         <>
             <Routes>
-                <Route index element={<Homepage />} />
-                <Route path="/album-search" element={<AlbumSearch />} />
-                <Route path="/recommendations" element={<Recommendations />} />
+                <Route path="/" element={<Homepage />}>
+                    <Route path="/album-search" element={<AlbumSearch />} />
+                </Route>
             </Routes>
         </>
     );

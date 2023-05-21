@@ -24,8 +24,9 @@ code {
 
 .card-text,
 .card-title,
-.list-group-item {
-  text-transform: capitalize;
+.list-group-item,
+.capitalise {
+  text-transform: capitalize !important;
 }
 
 .artist-name {
@@ -44,4 +45,36 @@ code {
 .container {
   padding-left: 0 !important;
   padding-right: 0 !important;
+}
+
+.shuffle-icon {
+  float: right !important;
+}
+
+.btn-success {
+  max-width: 5vw !important;
+  display: inline-flex !important;
+  justify-content: space-between;
+  align-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  white-space: nowrap !important;
+}
+
+.form-width {
+  width: 80vw !important;
+  padding-left: 5% !important;
+  padding-right: 5% !important;
+}
+
+.swing {
+  margin: 0 !important;
+}
+
+.genre-container {
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
