@@ -66,6 +66,7 @@ function Homepage() {
             },
         }
 
+        // Chris B: 7bXgB6jMjp9ATFy66eO08Z
         let artistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParameters)
             .then(response => {
                 setLoading(true)
