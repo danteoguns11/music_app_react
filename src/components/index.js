@@ -1,5 +1,5 @@
 export { default as NavBar } from './NavBar'
 export { default as Homepage } from './Homepage'
-export { default as SearchForm } from './SearchForm'
+// export { default as SearchForm } from './SearchForm'
 export { default as AlbumSearch } from './AlbumSearch'
 export { default as Recommendations } from './Recommendations'

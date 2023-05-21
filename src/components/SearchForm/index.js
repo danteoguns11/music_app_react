@@ -1,8 +1,9 @@
-import '../../App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// *** Not In Use, Added To NavBar ***/
+
 import React from 'react';
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
 
+// eslint-disable-next-line
 const SearchForm = ({ onSearch, onInputChange }) => {
     return (
         <InputGroup className='mb-3' size='lg'>

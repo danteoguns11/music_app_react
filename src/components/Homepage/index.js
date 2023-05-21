@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect } from 'react'
 import { Container } from 'react-bootstrap';
 
-import SearchForm from '../SearchForm';
+import NavBar from '../NavBar';
 import AlbumSearch from '../AlbumSearch';
 import Recommendations from '../Recommendations';
 
@@ -13,7 +13,6 @@ const CLIENT_SECRET = '5d35364f85234b09a9bda371b0f95bc2'
 function Homepage() {
     const [searchInput, setSearchInput] = useState('');
     const [accessToken, setAccessToken] = useState('');
-    // const [artistID, setArtistId] = useState('');
     const [albums, setAlbums] = useState([]);
     const [genre, setGenre] = useState([]);
     const [recommendations, setRecommendations] = useState([]);
@@ -45,7 +44,7 @@ function Homepage() {
             }
 
             // eslint-disable-next-line
-            fetch('https://api.spotify.com/v1/recommendations' + '?limit=12&market=US&seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_genres=rap&seed_tracks=0c6xIDDpzE81m2q797ordA&min_popularity=60', searchParameters)
+            fetch('https://api.spotify.com/v1/recommendations' + '?limit=12&market=US&seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_genres=rap&seed_tracks=0c6xIDDpzE81m2q797ordA&min_popularity=80', searchParameters)
                 .then(response => response.json())
                 .then(data => {
                     setRecommendations(data.tracks.sort((a, b) => b.popularity - a.popularity))
@@ -87,7 +86,7 @@ function Homepage() {
                 setLoading(false)
             })
 
-        // GET request with Artist ID grab all the albums from that artist
+        // GET request with Artist ID to grab all the albums from that artist
         // eslint-disable-next-line
         let returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/albums' + '?include_groups=album&market=US&limit=50', searchParameters)
             .then(response => {
@@ -98,6 +97,8 @@ function Homepage() {
                 setAlbums(data.items)
                 setLoading(false)
             })
+
+
     }
 
     function formatApiDate(dateString) {
@@ -108,18 +109,27 @@ function Homepage() {
 
     return (
         <div className='App'>
+            <NavBar onSearch={search} onInputChange={setSearchInput} />
+
             <Container className='search-form'>
-                <SearchForm onSearch={search} onInputChange={setSearchInput} />
+
+                {loading && <div className="alert alert-info" role="alert">
+                    Loading...
+                </div>}
+
+                {isSearchButtonClicked
+                    ?
+                    (
+                        <AlbumSearch albums={albums} genre={genre} formatApiDate={formatApiDate} />
+                    )
+                    :
+                    (
+                        <Recommendations recommendations={recommendations} formatApiDate={formatApiDate} />
+                    )
+                }
+
             </Container>
 
-            {loading && <div className="alert alert-info" role="alert">
-                Loading...
-            </div>}
-            {isSearchButtonClicked ? (
-                <AlbumSearch albums={albums} genre={genre} formatApiDate={formatApiDate} />
-            ) : (
-                <Recommendations recommendations={recommendations} formatApiDate={formatApiDate} />
-            )}
         </div>
     );
 }
