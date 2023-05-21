@@ -44,7 +44,7 @@ function Homepage() {
             }
 
             // eslint-disable-next-line
-            fetch('https://api.spotify.com/v1/recommendations' + '?limit=12&market=US&seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_genres=rap&seed_tracks=0c6xIDDpzE81m2q797ordA&min_popularity=80', searchParameters)
+            fetch('https://api.spotify.com/v1/recommendations' + '?limit=12&market=US&seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_genres=rap&seed_tracks=0c6xIDDpzE81m2q797ordA&min_popularity=75', searchParameters)
                 .then(response => response.json())
                 .then(data => {
                     setRecommendations(data.tracks.sort((a, b) => b.popularity - a.popularity))
@@ -97,21 +97,19 @@ function Homepage() {
                 setAlbums(data.items)
                 setLoading(false)
             })
-
-
     }
 
     function formatApiDate(dateString) {
         const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
         const date = new Date(dateString);
-        return date.toLocaleDateString('en-US', options);
+        return date.toLocaleDateString('en-GB', options);
     }
 
     return (
         <div className='App'>
             <NavBar onSearch={search} onInputChange={setSearchInput} />
 
-            <Container className='search-form'>
+            <Container>
 
                 {loading && <div className="alert alert-info" role="alert">
                     Loading...

@@ -3,7 +3,7 @@ import { Container, Row, Card, Badge } from 'react-bootstrap';
 
 function Recommendations({ recommendations, formatApiDate }) {
     return (
-        <Container className='recommendations'>
+        <>
             <Container>
                 <h2 className='mb-4 font-weight-bold'>Random Recommendations</h2>
             </Container>
@@ -24,7 +24,7 @@ function Recommendations({ recommendations, formatApiDate }) {
                     );
                 })}
             </Row>
-        </Container>
+        </>
     );
 }
 

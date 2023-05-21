@@ -14,7 +14,6 @@ function AlbumSearch({ albums, genre, formatApiDate }) {
                     const albumName = album.name;
                     const isDuplicate = checkDuplicateAlbum(albumName, i);
 
-                    // If it's a duplicate, skip displaying this album except for the first occurrence
                     if (isDuplicate && i !== albums.findIndex((item) => item.name === albumName)) {
                         return null;
                     }
@@ -23,7 +22,7 @@ function AlbumSearch({ albums, genre, formatApiDate }) {
                         <Card key={i} className="mx-auto mb-4">
                             <Card.Img src={album.images[0].url} />
                             <Card.Body>
-                                <Card.Title className="gold">{album.artists[0].name} </Card.Title>
+                                <Card.Title className='artist-name'>{album.artists[0].name} </Card.Title>
                                 <Card.Title>{albumName} </Card.Title>
                                 <Accordion>
                                     <Accordion.Item eventKey="0">

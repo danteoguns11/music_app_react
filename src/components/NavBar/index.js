@@ -1,11 +1,10 @@
 import React from 'react';
 import { Navbar, InputGroup, FormControl, Button } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 import logo from '../../assets/logo.png'
 
 const NavBar = ({ onSearch, onInputChange }) => {
 
-    const recommendBtn = () => {
+    const refreshBtn = () => {
         window.location.reload(false);
     };
 
@@ -13,14 +12,14 @@ const NavBar = ({ onSearch, onInputChange }) => {
         <>
             <Navbar bg="dark" variant="dark">
                 <img src={logo} alt="Music App Logo" className="logo" style={{ width: "4%" }} />
-                <Navbar.Brand as={Link} to="/">SoundSafari</Navbar.Brand>
+                <Navbar.Brand onClick={refreshBtn}>SoundSafari</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
 
                     <Button
                         className='mx-2'
                         variant='success'
-                        onClick={recommendBtn}
+                        onClick={refreshBtn}
                     >
                         Recommendations
                     </Button>
@@ -37,6 +36,7 @@ const NavBar = ({ onSearch, onInputChange }) => {
                             onChange={event => {
                                 onInputChange(event.target.value)
                             }}
+                            required
                         />
 
                         <Button onClick={onSearch}>
