@@ -68,6 +68,14 @@ const NavBar = ({ onSearch, onInputChange, onGenreSelection }) => {
         }
     }
 
+    const renderRandomiseTooltip = () => {
+        if (isRandomGenreDisabled) {
+            return <Tooltip id="randomise-tooltip">Select a genre to enable randomisation</Tooltip>;
+        } else {
+            return <Tooltip id="randomise-tooltip">Click to randomise the current genre</Tooltip>;
+        }
+    };
+
     return (
         <>
             <Navbar bg="dark" variant="dark" className="nav-bar">
@@ -112,17 +120,15 @@ const NavBar = ({ onSearch, onInputChange, onGenreSelection }) => {
                     >
                         <OverlayTrigger
                             placement="left"
-                            overlay={<Tooltip id="randomise-tooltip">Click to randomise the current genre</Tooltip>}
+                            overlay={renderRandomiseTooltip()}
                         >
                             <span>
                                 <Dropdown.Item eventKey={selectedGenre} onSelect={handleRandomGenre} disabled={isRandomGenreDisabled}>
                                     <>
-
                                         <span>
                                             <img src={shuffle} alt="shuffle recommendations" className="shuffle-icon" style={{ width: '17%' }} />
                                         </span>
                                         <span className="swing">Randomise</span>
-
                                     </>
                                 </Dropdown.Item>
                             </span>

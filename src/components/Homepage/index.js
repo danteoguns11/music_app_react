@@ -1,7 +1,5 @@
-import '../../App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect } from 'react'
-import { Container, Navbar, Nav, Dropdown } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 import NavBar from '../NavBar';
 import AlbumSearch from '../AlbumSearch';
@@ -44,7 +42,7 @@ function Homepage() {
             };
 
             // eslint-disable-next-line
-            fetch('https://api.spotify.com/v1/recommendations?limit=24&market=GB&seed_genres=r-n-b&min_popularity=50', searchParameters)
+            fetch('https://api.spotify.com/v1/recommendations?limit=24&market=GB&seed_genres=r-n-b', searchParameters)
                 .then(response => response.json())
                 .then(data => {
                     setRecommendations(data.tracks.sort((a, b) => b.popularity - a.popularity));

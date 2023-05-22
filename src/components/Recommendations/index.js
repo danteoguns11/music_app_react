@@ -2,6 +2,10 @@ import React from 'react';
 import { Container, Row, Card, Badge } from 'react-bootstrap';
 
 function Recommendations({ recommendations, formatApiDate }) {
+    const checkDuplicateAlbum = (albumName, index) => {
+        return recommendations.findIndex((recommendation, i) => i !== index && recommendation.name === albumName) !== -1;
+    };
+
     return (
         <>
             <Container>
@@ -10,6 +14,12 @@ function Recommendations({ recommendations, formatApiDate }) {
             </Container>
             <Row className='row row-cols-4'>
                 {recommendations.map((recommendation, i) => {
+                    const albumName = recommendation.album.name;
+                    const isDuplicate = checkDuplicateAlbum(albumName, i);
+
+                    if (isDuplicate && i !== recommendations.findIndex((item) => item.album.name === albumName)) {
+                        return null;
+                    }
                     return (
                         <Card key={i} className='mx-auto mb-4'>
                             <Card.Title className='artist-name'>{recommendation.album.artists[0].name} </Card.Title>
