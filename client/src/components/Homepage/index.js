@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const HomePage = () => {
     return (
         <main style={{ transform: 'translate(0vh, 70vh)' }}>
-            <Button as={Link} to="/dashboard" variant="light">Enter</Button>
+            <Button as={Link} to="/dashboard" variant="light">Enter &rarr;</Button>
         </main>
     );
 };

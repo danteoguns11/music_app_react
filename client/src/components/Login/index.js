@@ -42,7 +42,6 @@ const Login = () => {
 
     return (
         <div className="container no-scroll">
-            <Button as={Link} to="/dashboard" variant="light" style={{ transform: 'translate(0vh, 25vh)' }}>Back</Button>
             <div className="row">
                 <div className="col-md-5 mx-auto d-flex justify-content-center vh-100 align-items-center">
                     <div className="card card-body" id="login-card">
@@ -80,9 +79,12 @@ const Login = () => {
                         </Form>
 
                         <p className="small-xl pt-3 text-center">
-                            <span className="text-muted">No account?</span>
+                            <span className="text-muted">No account? </span>
                             <Link to="/register">Sign up here</Link>
                         </p>
+
+
+                        <Button as={Link} to="/dashboard" variant="light">&larr; Home</Button>
                     </div>
                 </div>
             </div>

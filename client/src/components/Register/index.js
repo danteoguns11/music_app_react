@@ -41,8 +41,6 @@ const Register = () => {
 
     return (
         <div className="container no-scroll">
-            <Button as={Link} to="/dashboard" variant="light" style={{ transform: 'translate(0vh, 25vh)' }}>Back</Button>
-
             <div className="row">
                 <div className="col-md-5 mx-auto d-flex justify-content-center vh-100 align-items-center">
                     <div className="card card-body" id="register-card">
@@ -80,9 +78,12 @@ const Register = () => {
                         </Form>
 
                         <p className="small-xl pt-3 text-center">
-                            <span className="text-muted">Already registered?</span>
+                            <span className="text-muted">Already registered? </span>
                             <Link to="/login">Log in here</Link>
                         </p>
+
+                        <Button as={Link} to="/dashboard" variant="light">&larr; Home</Button>
+
                     </div>
                 </div>
             </div>

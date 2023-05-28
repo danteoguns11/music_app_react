@@ -86,7 +86,7 @@ const NavBar = ({ onSearch, onInputChange, onGenreSelection }) => {
     const handleLogin = () => {
         if (authenticated) {
             localStorage.removeItem('authenticated');
-            window.location.reload(false);
+            navigate('/dashboard');
         } else {
             navigate('/login')
         }
