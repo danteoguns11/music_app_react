@@ -104,8 +104,6 @@ function Homepage() {
     }
 
     function handleGenreSelection(selectedGenre) {
-        // Perform logic to fetch recommendations based on selected genre
-        // Replace the example URL and parameters with your actual API endpoint
         const genreRecommendationsUrl = `https://api.spotify.com/v1/recommendations?limit=24&market=GB&seed_genres=${selectedGenre}&min_popularity=50`;
 
         fetch(genreRecommendationsUrl, {
