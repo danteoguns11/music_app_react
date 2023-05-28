@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Navbar, SplitButton, Dropdown, InputGroup, FormControl, Button, Container, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Navbar, SplitButton, Dropdown, InputGroup, FormControl, FloatingLabel, Button, Container, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import shuffle from '../../assets/shuffle.png';
@@ -92,10 +92,14 @@ const NavBar = ({ onSearch, onInputChange, onGenreSelection }) => {
         }
     }
 
+    const handleLogo = () => {
+        navigate('/');
+    }
+
     return (
         <>
             <Navbar bg="dark" variant="dark" className="nav-bar" fixed="top">
-                <img src={logo} alt="Music App Logo" className="logo" style={{ width: '4%' }} onClick={refreshBtn} />
+                <img src={logo} alt="Music App Logo" className="logo" style={{ width: '4%' }} onClick={handleLogo} />
                 <Navbar.Brand onClick={refreshBtn}>SoundSafari</Navbar.Brand>
 
                 {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
@@ -107,22 +111,28 @@ const NavBar = ({ onSearch, onInputChange, onGenreSelection }) => {
 
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <InputGroup className="mx-8 form-width" size="lg">
-                        <FormControl
-                            placeholder="Search For Artist"
-                            type="search"
-                            onKeyUp={(event) => {
-                                if (event.key === 'Enter') {
-                                    onSearch();
-                                }
-                            }}
-                            onChange={handleInputChange}
-                            required
-                        />
-                        <Button onClick={onSearch}>Search</Button>
+                        <FloatingLabel controlId="search-input" label="Swing Through The Music Jungle | Search For An Artist">
+                            <FormControl
+                                placeholder="Swing Through The Music Jungle | Search For An Artist"
+                                type="search"
+                                onKeyUp={(event) => {
+                                    if (event.key === 'Enter') {
+                                        onSearch();
+                                    }
+                                }}
+                                onChange={handleInputChange}
+                                style={{
+                                    textAlign: 'center'
+                                }}
+                                required
+                                autoFocus
+                            />
+                        </FloatingLabel>
+                        <Button variant="outline-warning" onClick={onSearch}>Search</Button>
                     </InputGroup>
 
                     <SplitButton
-                        variant="success"
+                        variant="warning"
                         className="capitalise"
                         title={
                             selectedGenre ? (

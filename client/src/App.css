@@ -74,6 +74,14 @@ code {
   height: 100vh;
 }
 
+.log-register {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #FFB400;
+  font-weight: bold;
+  font-size: 28px;
+}
+
 .usern {
   /* width: 75%; */
   color: rgb(38, 50, 56);
@@ -83,7 +91,7 @@ code {
   background: rgba(136, 126, 126, 0.04);
   padding: 10px 20px;
   border: none;
-  border-radius: 20px;
+  border-radius: 10em !important;
   outline: none;
   box-sizing: border-box;
   border: 2px solid rgba(0, 0, 0, 0.02);
@@ -103,7 +111,7 @@ code {
   background: rgba(136, 126, 126, 0.04);
   padding: 10px 20px;
   border: none;
-  border-radius: 20px;
+  border-radius: 10em !important;
   outline: none;
   box-sizing: border-box;
   border: 2px solid rgba(0, 0, 0, 0.02);
@@ -121,7 +129,7 @@ code {
 
 .login-btn {
   cursor: pointer;
-  border-radius: 5em;
+  border-radius: 15em !important;
   color: #fff;
   background: linear-gradient(to top, #FFB400, #FE5D26);
   border: 0;
@@ -138,7 +146,7 @@ code {
 
 .home-btn {
   cursor: pointer;
-  border-radius: 5em;
+  border-radius: 15em !important;
   color: #fff;
   background: linear-gradient(to bottom, #FFB400, #FE5D26);
   border: 0;

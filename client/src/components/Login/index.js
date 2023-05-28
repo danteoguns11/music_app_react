@@ -47,7 +47,7 @@ const Login = () => {
                     <div className="card card-body" id="login-card">
                         <div className="login-top">
                             <img src={logo} alt="logo" width="100px" />
-                            <h2>Login</h2>
+                            <h2 className='log-register'>Login</h2>
                         </div>
                         <Form onSubmit={handleLogin}>
                             <Form.Group controlId="username" className="form-group usern">
@@ -57,6 +57,9 @@ const Login = () => {
                                     value={username}
                                     placeholder='Username'
                                     onChange={(e) => setUsername(e.target.value)}
+                                    style={{
+                                        textAlign: 'center'
+                                    }}
                                     required
                                     autoFocus
                                 />
@@ -69,6 +72,9 @@ const Login = () => {
                                     value={password}
                                     placeholder='Password'
                                     onChange={(e) => setPassword(e.target.value)}
+                                    style={{
+                                        textAlign: 'center'
+                                    }}
                                     required
                                 />
                             </Form.Group>

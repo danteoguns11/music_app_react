@@ -46,7 +46,7 @@ const Register = () => {
                     <div className="card card-body" id="register-card">
                         <div className="register-top">
                             <img src={logo} alt="logo" width="100px" />
-                            <h2>Register</h2>
+                            <h2 className='log-register'>Register</h2>
                         </div>
                         <Form onSubmit={handleRegister}>
                             <Form.Group controlId="username" className="form-group usern">
@@ -56,6 +56,9 @@ const Register = () => {
                                     value={username}
                                     placeholder='Username'
                                     onChange={(e) => setUsername(e.target.value)}
+                                    style={{
+                                        textAlign: 'center'
+                                    }}
                                     required
                                     autoFocus
                                 />
@@ -68,6 +71,9 @@ const Register = () => {
                                     value={password}
                                     placeholder='Password'
                                     onChange={(e) => setPassword(e.target.value)}
+                                    style={{
+                                        textAlign: 'center'
+                                    }}
                                     required
                                 />
                             </Form.Group>
