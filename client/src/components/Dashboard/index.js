@@ -126,7 +126,7 @@ function Homepage() {
         <div className='App'>
             <NavBar onSearch={search} onInputChange={setSearchInput} onGenreSelection={handleGenreSelection} />
 
-            <Container>
+            <Container style={{ transform: "translateY(10vh)" }}>
 
                 {loading && <div className="alert alert-info" role="alert">
                     Loading...

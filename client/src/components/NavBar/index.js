@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Navbar, SplitButton, Dropdown, InputGroup, FormControl, Button, Container, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import shuffle from '../../assets/shuffle.png';
 
@@ -7,6 +8,10 @@ const NavBar = ({ onSearch, onInputChange, onGenreSelection }) => {
     const [selectedGenre, setSelectedGenre] = useState('');
     const isRandomGenreDisabled = !selectedGenre;
     const splitButtonRef = useRef(null);
+    const navigate = useNavigate();
+
+    const authenticated = localStorage.getItem("authenticated")
+
 
     const genreOptions = [
         'r-n-b',
@@ -38,6 +43,7 @@ const NavBar = ({ onSearch, onInputChange, onGenreSelection }) => {
         window.location.reload(false);
     };
 
+    // eslint-disable-next-line
     function handleSearch(e) {
         e.preventDefault();
         onSearch();
@@ -58,6 +64,7 @@ const NavBar = ({ onSearch, onInputChange, onGenreSelection }) => {
         onGenreSelection(randomGenre);
     }
 
+    // eslint-disable-next-line
     function handleSplitButtonClick() {
         splitButtonRef.current.click();
     }
@@ -76,12 +83,26 @@ const NavBar = ({ onSearch, onInputChange, onGenreSelection }) => {
         }
     };
 
+    const handleLogin = () => {
+        if (authenticated) {
+            localStorage.removeItem('authenticated');
+            window.location.reload(false);
+        } else {
+            navigate('/login')
+        }
+    }
+
     return (
         <>
-            <Navbar bg="dark" variant="dark" className="nav-bar">
+            <Navbar bg="dark" variant="dark" className="nav-bar" fixed="top">
                 <img src={logo} alt="Music App Logo" className="logo" style={{ width: '4%' }} />
                 <Navbar.Brand onClick={refreshBtn}>SoundSafari</Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
+                <Button as={Link} to='/login' variant="primary" type="button" onClick={handleLogin}>
+                    {!authenticated && <span>Login</span>}
+                    {authenticated && <span>Logout</span>}
+                </Button>
+
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <InputGroup className="mx-8 form-width" size="lg">
                         <FormControl

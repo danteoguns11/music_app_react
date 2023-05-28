@@ -25,7 +25,7 @@ const Register = () => {
         };
 
         try {
-            const response = await fetch("http://localhost:3000/users/register", options);
+            const response = await fetch("https://soundsafari-api.onrender.com/users/register", options);
             const data = await response.json();
 
             if (response.status === 201) {
@@ -40,7 +40,9 @@ const Register = () => {
     };
 
     return (
-        <div className="container">
+        <div className="container no-scroll">
+            <Button as={Link} to="/dashboard" variant="light" style={{ transform: 'translate(0vh, 25vh)' }}>Back</Button>
+
             <div className="row">
                 <div className="col-md-5 mx-auto d-flex justify-content-center vh-100 align-items-center">
                     <div className="card card-body" id="register-card">
