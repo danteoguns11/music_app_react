@@ -95,10 +95,12 @@ const NavBar = ({ onSearch, onInputChange, onGenreSelection }) => {
     return (
         <>
             <Navbar bg="dark" variant="dark" className="nav-bar" fixed="top">
-                <img src={logo} alt="Music App Logo" className="logo" style={{ width: '4%' }} />
+                <img src={logo} alt="Music App Logo" className="logo" style={{ width: '4%' }} onClick={refreshBtn} />
                 <Navbar.Brand onClick={refreshBtn}>SoundSafari</Navbar.Brand>
+
                 {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
-                <Button as={Link} to='/login' variant="primary" type="button" onClick={handleLogin}>
+
+                <Button as={Link} to='/login' className='gradient-btn' variant="primary" type="button" onClick={handleLogin}>
                     {!authenticated && <span>Login</span>}
                     {authenticated && <span>Logout</span>}
                 </Button>
@@ -129,9 +131,9 @@ const NavBar = ({ onSearch, onInputChange, onGenreSelection }) => {
                                 </>
                             ) : (
                                 <>
-                                    <p className="swing" onClick={handleOriginalStateClick}>
+                                    <span className="swing" onClick={handleOriginalStateClick}>
                                         Swing
-                                    </p>
+                                    </span>
                                     <img src={shuffle} alt="shuffle recommendations" className="shuffle-icon" style={{ width: '25%' }} />
                                 </>
                             )
@@ -146,10 +148,10 @@ const NavBar = ({ onSearch, onInputChange, onGenreSelection }) => {
                             <span>
                                 <Dropdown.Item eventKey={selectedGenre} onSelect={handleRandomGenre} disabled={isRandomGenreDisabled}>
                                     <>
+                                        <span className="swing">Randomise</span>
                                         <span>
                                             <img src={shuffle} alt="shuffle recommendations" className="shuffle-icon" style={{ width: '17%' }} />
                                         </span>
-                                        <span className="swing">Randomise</span>
                                     </>
                                 </Dropdown.Item>
                             </span>

@@ -49,40 +49,43 @@ const Register = () => {
                             <h2>Register</h2>
                         </div>
                         <Form onSubmit={handleRegister}>
-                            <Form.Group controlId="username" className="form-group required">
-                                <Form.Label>Username:</Form.Label>
+                            <Form.Group controlId="username" className="form-group usern">
+                                {/* <Form.Label>Username:</Form.Label> */}
                                 <Form.Control
                                     type="text"
                                     value={username}
+                                    placeholder='Username'
                                     onChange={(e) => setUsername(e.target.value)}
                                     required
                                     autoFocus
                                 />
                             </Form.Group>
 
-                            <Form.Group controlId="password" className="form-group required">
-                                <Form.Label>Password:</Form.Label>
+                            <Form.Group controlId="password" className="form-group pass">
+                                {/* <Form.Label>Password:</Form.Label> */}
                                 <Form.Control
                                     type="password"
                                     value={password}
+                                    placeholder='Password'
                                     onChange={(e) => setPassword(e.target.value)}
                                     required
                                 />
                             </Form.Group>
 
                             <div className="pt-2 d-grid gap-2 col-12 mx-auto">
-                                <Button variant="primary" type="submit">
+                                <Button className='login-btn' variant="primary" type="submit">
                                     Register
                                 </Button>
                             </div>
                         </Form>
 
                         <p className="small-xl pt-3 text-center">
-                            <span className="text-muted">Already registered? </span>
-                            <Link to="/login">Log in here</Link>
+                            <span className="switch-link">Already registered? </span>
+                            <Link to="/login"
+                                className="switch-link">Log in here</Link>
                         </p>
 
-                        <Button as={Link} to="/dashboard" variant="light">&larr; Home</Button>
+                        <Button as={Link} to="/dashboard" className='home-btn' variant="light">&larr; Home</Button>
 
                     </div>
                 </div>
