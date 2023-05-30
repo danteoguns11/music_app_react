@@ -12,4 +12,7 @@ export { default as Login } from './Login'
 export { default as Register } from './Register'
 
 export { default as DarkMode } from './DarkMode'
-
+export { default as SpotifyButton } from './SpotifyButton'
+export { default as Player } from './Player'
+export { default as useAuth } from './useAuth'
+export { default as WebPlayback } from './WebPlayback'

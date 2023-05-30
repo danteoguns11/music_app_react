@@ -8,6 +8,8 @@ import Dashboard from './components/Dashboard'
 import Login from './components/Login'
 import Register from './components/Register';
 
+const code = new URLSearchParams(window.location.search).get("code")
+
 function App() {
     return (
         <>
@@ -15,7 +17,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Homepage />} />
 
-                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/dashboard" element={<Dashboard code={code} />} />
 
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
