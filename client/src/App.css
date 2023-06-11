@@ -180,6 +180,9 @@ code {
 .btn-success {
   max-width: 6.5vw !important;
   display: inline-flex !important;
+  justify-content: space-between;
+  align-content: space-around;
+  flex-wrap: wrap;
   align-items: center;
   white-space: nowrap !important;
   padding-right: 3px !important;

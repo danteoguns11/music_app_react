@@ -11,8 +11,6 @@ import Dashboard from './components/Dashboard'
 import Login from './components/Login'
 import Register from './components/Register';
 
-const code = new URLSearchParams(window.location.search).get("code")
-
 function App() {
     // eslint-disable-next-line
     const isAuthenticated = localStorage.getItem('token');

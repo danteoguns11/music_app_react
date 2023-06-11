@@ -1,28 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { Container } from 'react-bootstrap';
-import SpotifyWebApi from "spotify-web-api-node";
 
 import NavBar from '../NavBar';
 import AlbumSearch from '../AlbumSearch';
 import Recommendations from '../Recommendations';
 
-// eslint-disable-next-line
-import Player from '../Player';
-import WebPlayback from '../WebPlayback';
+const CLIENT_ID = '879b5f48f7a245dea88f82a12a28e328'
+const CLIENT_SECRET = '5d35364f85234b09a9bda371b0f95bc2'
 
-// eslint-disable-next-line
-import useAuth from '../useAuth';
-
-
-const CLIENT_ID = '91aaec1dc7f74b32a8e53eed4e4a2ef2'
-const CLIENT_SECRET = 'bd9b0232092444519eb474381e5968bc'
-
-// eslint-disable-next-line
-const spotifyApi = new SpotifyWebApi({
-    clientId: "91aaec1dc7f74b32a8e53eed4e4a2ef2",
-});
-
-function Dashboard({ code }) {
+function Homepage() {
     const [searchInput, setSearchInput] = useState('');
     const [accessToken, setAccessToken] = useState('');
     const [albums, setAlbums] = useState([]);
@@ -30,8 +16,6 @@ function Dashboard({ code }) {
     const [recommendations, setRecommendations] = useState([]);
     const [isSearchButtonClicked, setIsSearchButtonClicked] = useState(false);
     const [loading, setLoading] = useState(false);
-
-    const [playingTrack, setPlayingTrack] = useState();
 
     useEffect(() => {
         // API Access Token
@@ -57,8 +41,6 @@ function Dashboard({ code }) {
                 },
             };
 
-            console.log('in useEffect', accessToken);
-
             // eslint-disable-next-line
             fetch('https://api.spotify.com/v1/recommendations?limit=24&market=GB&seed_genres=r-n-b', searchParameters)
                 .then(response => response.json())
@@ -69,7 +51,7 @@ function Dashboard({ code }) {
         }
     }, [accessToken]);
 
-    async function searchBar() {
+    async function search() {
         setIsSearchButtonClicked(true);
 
         // GET request using search to get the Artist ID
@@ -142,20 +124,13 @@ function Dashboard({ code }) {
 
     return (
         <div className='App'>
-            <NavBar onSearch={searchBar} onInputChange={setSearchInput} onGenreSelection={handleGenreSelection} />
+            <NavBar onSearch={search} onInputChange={setSearchInput} onGenreSelection={handleGenreSelection} />
 
             <Container style={{ transform: "translateY(10vh)" }}>
 
                 {loading && <div className="alert alert-info" role="alert">
                     Loading...
                 </div>}
-
-                <div>
-                    {/* <Player accessToken={accessToken} trackUri={playingTrack?.uri} /> */}
-
-                    <WebPlayback accessToken={accessToken} />
-
-                </div>
 
                 {isSearchButtonClicked
                     ?
@@ -173,4 +148,4 @@ function Dashboard({ code }) {
     );
 }
 
-export default Dashboard;
+export default Homepage;
