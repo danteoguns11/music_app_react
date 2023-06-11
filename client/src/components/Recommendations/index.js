@@ -8,7 +8,7 @@ function Recommendations({ recommendations, formatApiDate }) {
 
     return (
         <>
-            <Container id='cant-decide'>
+            <Container>
                 <h2 className='mb-4 font-weight-bold'>Recommended Albums</h2>
                 <p>Can't decide what to listen to and want some recommended albums? Click on the Swing to choose a random genre</p>
             </Container>

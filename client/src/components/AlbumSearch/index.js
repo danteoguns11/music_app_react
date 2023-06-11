@@ -8,7 +8,7 @@ function AlbumSearch({ albums, genre, formatApiDate }) {
 
     return (
         <Container className="album-search">
-            <h3 className='mb-4 font-weight-bold'>Album Search</h3>
+            <h1 className="mb-4 font-weight-bold">Album Search</h1>
             <Row className="row row-cols-4">
                 {albums.map((album, i) => {
                     const albumName = album.name;

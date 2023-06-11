@@ -3,7 +3,6 @@ import { Navbar, SplitButton, Dropdown, InputGroup, FormControl, FloatingLabel, 
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import shuffle from '../../assets/shuffle.png';
-import DarkMode from '../DarkMode';
 
 const NavBar = ({ onSearch, onInputChange, onGenreSelection }) => {
     const [selectedGenre, setSelectedGenre] = useState('');
@@ -190,9 +189,6 @@ const NavBar = ({ onSearch, onInputChange, onGenreSelection }) => {
                             </Container>
                         ))}
                     </SplitButton>
-
-                    <DarkMode />
-
                 </Navbar.Collapse>
             </Navbar>
         </>
